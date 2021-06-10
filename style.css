@@ -1,0 +1,100 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    margin: 50px;
+    min-width: 400px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.39);
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+header{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: aquamarine;
+    border-radius: 10px;
+}
+
+.wrapper{
+    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper input {
+    width: 70%;
+    height: auto;
+    outline: none;
+}
+
+.addTodo{
+    height: 30px;
+    width: 25%;
+}
+
+.todo__Ul{
+    list-style: none;
+    width: auto;
+}
+
+li{
+    width: auto;
+    margin: 10px 5px;
+    border-bottom: 1px solid black;
+}
+
+.customization{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.432);
+    border-radius: 10px;
+}
+
+.customization h4{
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.wrapperMessages{
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    border-bottom: 1px solid black;   
+}
+
+.doneWrapperMessages{
+    display: flex;
+    justify-content: space-between;
+    text-decoration: line-through;
+    cursor: pointer;
+    margin: 10px;
+    color: rgba(0, 0, 0, 0.377);
+    border-bottom: 1px solid black; 
+}
+
+.btnDeleteTasks{
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    background: transparent ;
+    border: transparent;
+}
