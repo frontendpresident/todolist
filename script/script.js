@@ -9,6 +9,43 @@ let allTasks = document.querySelector('.allTasks')
 
 let arrayOfMessages = []
 
+let createElFunc = (filter, array) => {
+
+    filter.forEach((item, index) => {
+
+        const wrapper = document.createElement('div')
+        wrapper.className = 'wrapperMessages'
+
+        const todoTitle = document.createElement('h3')
+        todoTitle.innerHTML = item.text
+
+        todoTitle.addEventListener('click', () => {
+
+            if(item.isDone === true){
+                todoTitle.className = ''
+                return
+            }
+            todoTitle.className = 'doneWrapperMessages'
+            item.isDone = false
+        })
+
+        const btnDeleteTasks = document.createElement('button')
+        btnDeleteTasks.className = 'btnDeleteTasks'
+        btnDeleteTasks.innerHTML = '❌'
+
+        wrapper.appendChild(todoTitle)
+        list.appendChild(wrapper)
+        wrapper.appendChild(btnDeleteTasks)
+
+        btnDeleteTasks.onclick = () => {
+
+            wrapper.remove()
+            array.splice(index, index + 1)
+        }
+
+    })
+}
+
 const displayMessages = () => {
 
     list.innerHTML = ''
@@ -68,82 +105,15 @@ doneTasks.onclick = () => {
     list.innerHTML = ''
 
     let filterDoneTask = arrayOfMessages.filter(f => f.isDone === true);
-    filterDoneTask.forEach((item, index) => {
-
-        const wrapper = document.createElement('div')
-        wrapper.className = 'wrapperMessages'
-
-        const todoTitle = document.createElement('h3')
-        todoTitle.innerHTML = item.text
-        todoTitle.className = 'doneWrapperMessages'
-
-        todoTitle.addEventListener('click', () => {
-
-            todoTitle.className = ""
-            item.isDone = false;
-         
-        })
-
-        const btnDeleteTasks = document.createElement('button')
-        btnDeleteTasks.className = 'btnDeleteTasks'
-        btnDeleteTasks.innerHTML = '❌'
-
-        wrapper.appendChild(todoTitle)
-        list.appendChild(wrapper)
-
-        wrapper.appendChild(btnDeleteTasks)
-        btnDeleteTasks.onclick = () => {
-
-            wrapper.remove()
-            arrayOfMessages.splice(index, index + 1)
-        }
-    })
-
-
+    createElFunc(filterDoneTask, arrayOfMessages);
 }
 
 notDoneTasks.onclick = () => {
 
     list.innerHTML = ''
-
     let filterNotDoneTask = arrayOfMessages.filter(f => f.isDone !== true);
-
-    filterNotDoneTask.forEach((item, index) => {
-
-        const wrapper = document.createElement('div')
-        wrapper.className = 'wrapperMessages'
-
-        const todoTitle = document.createElement('h3')
-        todoTitle.innerHTML = item.text
-
-        todoTitle.addEventListener('click', () => {
-
-            if(item.isDone !== true){
-                todoTitle.className = 'doneWrapperMessages'
-                return
-            }
-            todoTitle.className = ''
-            item.isDone = false
-        })
-
-        const btnDeleteTasks = document.createElement('button')
-        btnDeleteTasks.className = 'btnDeleteTasks'
-        btnDeleteTasks.innerHTML = '❌'
-
-        wrapper.appendChild(todoTitle)
-        list.appendChild(wrapper)
-
-        wrapper.appendChild(btnDeleteTasks)
-        btnDeleteTasks.onclick = () => {
-
-            wrapper.remove()
-            arrayOfMessages.splice(index, index + 1)
-
-        }
-
-    })
-
-
+    createElFunc(filterNotDoneTask, arrayOfMessages);
+    
 }
 
 allTasks.onclick = () => {
@@ -192,11 +162,8 @@ allTasks.onclick = () => {
 
 
 clearListBtn.onclick = () => {
-    while (arrayOfMessages.length > 0) {
-
-        arrayOfMessages.pop()
-    }
-
+    
+    arrayOfMessages = []
     list.innerHTML = ''
 }
 
