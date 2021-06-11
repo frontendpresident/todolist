@@ -9,9 +9,9 @@ let allTasks = document.querySelector('.allTasks')
 
 let arrayOfMessages = []
 
-let createElFunc = (filter, array) => {
+let createElFunc = (filterArr) => {
 
-    filter.forEach((item, index) => {
+    filterArr.forEach((item, index) => {
 
         const wrapper = document.createElement('div')
         wrapper.className = 'wrapperMessages'
@@ -40,7 +40,7 @@ let createElFunc = (filter, array) => {
         btnDeleteTasks.onclick = () => {
 
             wrapper.remove()
-            array.splice(index, index + 1)
+            arrayOfMessages.splice(index, index + 1)
         }
 
     })
@@ -105,14 +105,14 @@ doneTasks.onclick = () => {
     list.innerHTML = ''
 
     let filterDoneTask = arrayOfMessages.filter(f => f.isDone === true);
-    createElFunc(filterDoneTask, arrayOfMessages);
+    createElFunc(filterDoneTask);
 }
 
 notDoneTasks.onclick = () => {
 
     list.innerHTML = ''
     let filterNotDoneTask = arrayOfMessages.filter(f => f.isDone !== true);
-    createElFunc(filterNotDoneTask, arrayOfMessages);
+    createElFunc(filterNotDoneTask);
     
 }
 
