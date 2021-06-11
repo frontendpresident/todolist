@@ -18,14 +18,17 @@ body{
     background-color: rgba(255, 255, 255, 0.39);
     border: 1px solid black;
     border-radius: 10px;
+    box-shadow: 1px 13px 20px -5px #2d302c;
 }
 
 header{
     width: 100%;
     text-align: center;
     margin-bottom: 20px;
-    background-color: aquamarine;
+    background-color: rgb(0, 0, 0);
     border-radius: 10px;
+    color: white;
+    box-shadow: 0px 10px 14px -7px #2d302c;
 }
 
 .wrapper{
@@ -42,21 +45,31 @@ header{
     outline: none;
 }
 
-.addTodo{
-    height: 30px;
-    width: 25%;
+.addTodo {
+	box-shadow: 0px 10px 14px -7px #3e7327;
+	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+	background-color:#77b55a;
+	border-radius:4px;
+	border:1px solid #4b8f29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:6px 12px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #5b8a3c;
+}
+.addTodo:hover {
+	background:linear-gradient(to bottom, #72b352 5%, #77b55a 100%);
+	background-color:#72b352;
+}
+.addTodo:active {
+	position:relative;
+	top:1px;
 }
 
-.todo__Ul{
-    list-style: none;
-    width: auto;
-}
-
-li{
-    width: auto;
-    margin: 10px 5px;
-    border-bottom: 1px solid black;
-}
 
 .customization{
     padding: 10px;
@@ -66,6 +79,7 @@ li{
     height: 50px;
     background-color: rgba(0, 0, 0, 0.432);
     border-radius: 10px;
+    box-shadow: 0px 10px 14px -7px #2d302c;
 }
 
 .customization h4{
@@ -86,9 +100,31 @@ li{
     justify-content: space-between;
     text-decoration: line-through;
     cursor: pointer;
-    margin: 10px;
     color: rgba(0, 0, 0, 0.377);
-    border-bottom: 1px solid black; 
+     
+}
+
+.clearBtn {
+	background:linear-gradient(to bottom, #f50e48 5%, #e32222 100%);
+	background-color:#f50e48;
+	border-radius:4px;
+	border:1px solid #e63570;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:8px;
+	font-weight:bold;
+	padding:6px 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #f70a31;
+}
+.clearBtn:hover {
+	background:linear-gradient(to bottom, #e32222 5%, #f50e48 100%);
+	background-color:#e32222;
+}
+.clearBtn:active {
+	position:relative;
+	top:1px;
 }
 
 .btnDeleteTasks{
@@ -97,4 +133,12 @@ li{
     z-index: 1;
     background: transparent ;
     border: transparent;
+}
+
+
+.customizationClick {
+    cursor: pointer;
+    margin-right: 5px;
+    background-color: white;
+    color: black;
 }
